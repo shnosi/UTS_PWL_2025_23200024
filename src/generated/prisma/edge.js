@@ -115,7 +115,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "D:\\SS\\2024 2025\\monolithic vs microservices\\uts_pwl_2025\\src\\generated\\prisma",
+      "value": "D:\\UTS_PWL_2025_23200024\\UTS_PWL_2025_23200024\\src\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -129,7 +129,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "D:\\SS\\2024 2025\\monolithic vs microservices\\uts_pwl_2025\\prisma\\schema.prisma",
+    "sourceFilePath": "D:\\UTS_PWL_2025_23200024\\UTS_PWL_2025_23200024\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

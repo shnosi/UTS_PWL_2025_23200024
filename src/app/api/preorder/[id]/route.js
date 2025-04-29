@@ -1,20 +1,20 @@
 import prisma from "@/lib/prisma";
 
 export async function PUT(request, { params }) {
-    const id = params.id;
+    const { id } = params;
     const { order_date, order_by, selected_package, qty, status } = await request.json();
 
     if (!order_date || !order_by || !selected_package || !qty || !status) {
         return new Response(JSON.stringify({ error: 'Field kosong' }), { status: 400 });
     }
 
-    const cekOrderDate = new Date(order_date).toISOString();
+    const validOrderDate = new Date(order_date).toISOString();
 
     const is_paid = status === "Lunas";
     
     const preorder = await prisma.preorder.update({
         where: { id: Number(id) },
-        data: { order_date: cekOrderDate, order_by, selected_package, qty, is_paid },
+        data: { order_date: validOrderDate, order_by, selected_package, qty, is_paid },
     });
 
     const formattedPreorder = {

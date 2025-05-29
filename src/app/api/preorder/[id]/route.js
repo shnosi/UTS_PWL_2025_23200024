@@ -1,7 +1,7 @@
 import prisma from "@/lib/prisma";
 
 export async function PUT(request, { params }) {
-    const { id } = params;
+    const { id } = await params;
     const { order_date, order_by, selected_package, qty, status } = await request.json();
 
     if (!order_date || !order_by || !selected_package || !qty || !status) {
@@ -17,6 +17,7 @@ export async function PUT(request, { params }) {
         data: { order_date: validOrderDate, order_by, selected_package, qty, is_paid },
     });
 
+    // format tampilan hasil di Postman
     const formattedPreorder = {
         id: preorder.id,
         order_date: preorder.order_date.toISOString().split('T')[0],
@@ -30,7 +31,7 @@ export async function PUT(request, { params }) {
 }
 
 export async function DELETE(request, { params }) {
-    const { id } = params;
+    const { id } = await params;
 
     if (!id) return new Response(JSON.stringify({ error: "ID tidak ditemukan" }), { status: 400 });
 
